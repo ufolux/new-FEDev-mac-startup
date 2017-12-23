@@ -73,6 +73,9 @@ colorTitle "step 15.install other tools"
 colorSubTitle " -install node-canvas"
 brew install pkg-config cairo pango libpng jpeg giflib
 
+colorSubTitle " -install shadowsocksx"
+brew cask install shadowsocksx
+
 colorSubTitle " -install fanyi"
 npm i -g fanyi
 
@@ -114,6 +117,7 @@ All Packages Below Has Been Installed
     -cordova
     -react-native-cli
     -node-canvas
+    -shadowsocksx
     -fanyi
     -toilet
     -ios-deploy

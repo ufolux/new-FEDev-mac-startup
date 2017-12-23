@@ -156,6 +156,7 @@ colorSubTitle " -install node-canvas"
 brew install pkg-config cairo pango libpng jpeg giflib
 
 colorTitle "step 15.install adnroid sdk tools with sdkmanager"
+echo "\033[31m this step will take long time to finish, you have to be patient in waiting \033[0m"
 rm -rf ~/.android
 sdkmanager "add-ons;addon-google_apis-google-15" "add-ons;addon-google_apis-google-16" "add-ons;addon-google_apis-google-17" "add-ons;addon-google_apis-google-18" "add-ons;addon-google_apis-google-19" "add-ons;addon-google_apis-google-21" "add-ons;addon-google_apis-google-22" "add-ons;addon-google_apis-google-23" "add-ons;addon-google_apis-google-24" "build-tools;19.1.0" "build-tools;20.0.0" "build-tools;21.1.2" "build-tools;22.0.1" "build-tools;23.0.1" "build-tools;23.0.2" "build-tools;23.0.3" "build-tools;24.0.0" "build-tools;24.0.1" "build-tools;24.0.2" "build-tools;24.0.3" "build-tools;25.0.0" "build-tools;25.0.1" "build-tools;25.0.2" "build-tools;25.0.3" "build-tools;26.0.0" "build-tools;26.0.1" "build-tools;26.0.2" "cmake;3.6.4111459" "extras;android;m2repository" "extras;google;m2repository" "extras;google;webdriver" "lldb;2.0" "lldb;2.1" "lldb;2.2" "lldb;2.3" "ndk-bundle" "patcher;v4" "platform-tools" "platforms;android-15" "platforms;android-16" "platforms;android-17" "platforms;android-18" "platforms;android-19" "platforms;android-20" "platforms;android-21" "platforms;android-22" "platforms;android-23" "platforms;android-24" "platforms;android-25" "platforms;android-26" "tools"
 

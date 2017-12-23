@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # $1 text
 function colorTitle () {
     echo '\033[36m '$1' \033[0m'

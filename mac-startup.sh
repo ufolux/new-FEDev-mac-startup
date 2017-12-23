@@ -13,6 +13,7 @@ function cmdExist () {
     command -v $1 > /dev/null 2>&1 : true - false
 }
 
+echo "\033[31m Before runing this script \n please make sure the Xcode and Xcode Command Line Tool has been installed  \033[0m"
 echo "Please input your password:"
 sudo echo 'login success' 
 
@@ -98,14 +99,17 @@ colorTitle "step 10.install android-sdk"
 brew cask install android-sdk
 
 colorTitle "step 11.export android env path"
-echo 'export MAVEN_HOME=/usr/local/opt/maven
-export GRADLE_HOME=/usr/local/opt/gradle
-export ANDROID_HOME=/usr/local/share/android-sdk
-export PATH=$MAVEN_HOME/bin:$PATH
-export PATH=$GRADLE_HOME/bin:$PATH
-export PATH=$ANDROID_HOME/tools:$PATH
-export PATH=$ANDROID_HOME/platform-tools:$PATH
-export PATH=$ANDROID_HOME/build-tools/26.0.2:$PATH # replace 26.0.2 as your build-tools ver.' >> ~/.zshrc
+if env | grep ANDROID_HOME; then
+    echo 'export MAVEN_HOME=/usr/local/opt/maven
+    export GRADLE_HOME=/usr/local/opt/gradle
+    export ANDROID_HOME=/usr/local/share/android-sdk
+    export PATH=$MAVEN_HOME/bin:$PATH
+    export PATH=$GRADLE_HOME/bin:$PATH
+    export PATH=$ANDROID_HOME/tools:$PATH
+    export PATH=$ANDROID_HOME/platform-tools:$PATH
+    export PATH=$ANDROID_HOME/build-tools/26.0.2:$PATH # replace 26.0.2 as your build-tools ver.' >> ~/.zshrc
+    source ~/.zshrc
+fi
 
 colorTitle "step 12.install cordova"
 yarn global add cordova@5.0.0
@@ -127,7 +131,8 @@ colorSubTitle " -install toilet"
 yarn global add toilet
 
 colorSubTitle " -install ios-deploy"
-yarn global add ios-deploy
+sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer/
+sudo yarn global add ios-deploy
 
 colorSubTitle " -install rhash"
 brew install rhash
@@ -160,6 +165,8 @@ All Packages Below Has Been Installed
     -java
     -chrome
     -Node.js
+    -n
+    -yarn
     -ruby
     -cocoapods
     -maven
@@ -177,6 +184,8 @@ All Packages Below Has Been Installed
     -pycharm
     -Bilibili
     -Aria2GUI
+    -iTerm2
+    -VSCode
 "
 
 echo "\033[31m WARNING: YOU MAY NEED TO CHECK THE ANDROID BUILD TOOLS VER EXPORTED IN '.zshrc' \033[0m"

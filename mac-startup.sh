@@ -14,7 +14,7 @@ function cmdExist () {
 }
 
 echo "Please input your password:"
-sudo -i
+sudo echo 'login success' 
 
 echo "Allow install software from unknown source"
 sudo spctl --master-disable
@@ -62,15 +62,31 @@ brew cask install caskroom/versions/java8
 
 colorTitle "step 7.install cocoapods"
 colorSubTitle " - install ruby"
-brew install ruby
+if cmdExist ruby; then 
+    echo 'ruby is already installed'        
+else
+    brew install ruby
+fi
 colorSubTitle " - install cocoapods"
-sudo gem install cocoapods
+if cmdExist pod; then 
+    echo 'pod is already installed'        
+else
+    sudo gem install cocoapods
+fi
 
 colorTitle "step 8.install maven"
-brew install maven
+if cmdExist maven; then 
+    echo 'maven is already installed'        
+else
+    brew install maven
+fi
 
 colorTitle "step 9.install gradle"
-brew install gradle
+if cmdExist gradle; then 
+    echo 'gradle is already installed'        
+else
+    brew install gradle
+fi
 
 colorTitle "step 10.install android-sdk"
 brew cask install android-sdk
@@ -92,9 +108,6 @@ colorTitle "step 13.install react-native-cli"
 npm i -g react-native-cli
 
 colorTitle "step 14.install other tools"
-colorSubTitle " -install node-canvas"
-brew install pkg-config cairo pango libpng jpeg giflib
-
 colorSubTitle " -install iterm2"
 brew cask install iterm2
 
@@ -131,6 +144,8 @@ brew cask install visual-studio-code
 colorTitle "step 15.install adnroid sdk tools with sdkmanager"
 sdkmanager "add-ons;addon-google_apis-google-15" "add-ons;addon-google_apis-google-16" "add-ons;addon-google_apis-google-17" "add-ons;addon-google_apis-google-18" "add-ons;addon-google_apis-google-19" "add-ons;addon-google_apis-google-21" "add-ons;addon-google_apis-google-22" "add-ons;addon-google_apis-google-23" "add-ons;addon-google_apis-google-24" "build-tools;19.1.0" "build-tools;20.0.0" "build-tools;21.1.2" "build-tools;22.0.1" "build-tools;23.0.1" "build-tools;23.0.2" "build-tools;23.0.3" "build-tools;24.0.0" "build-tools;24.0.1" "build-tools;24.0.2" "build-tools;24.0.3" "build-tools;25.0.0" "build-tools;25.0.1" "build-tools;25.0.2" "build-tools;25.0.3" "build-tools;26.0.0" "build-tools;26.0.1" "build-tools;26.0.2" "cmake;3.6.4111459" "extras;android;m2repository" "extras;google;m2repository" "extras;google;webdriver" "lldb;2.0" "lldb;2.1" "lldb;2.2" "lldb;2.3" "ndk-bundle" "patcher;v4" "platform-tools" "platforms;android-15" "platforms;android-16" "platforms;android-17" "platforms;android-18" "platforms;android-19" "platforms;android-20" "platforms;android-21" "platforms;android-22" "platforms;android-23" "platforms;android-24" "platforms;android-25" "platforms;android-26" "tools"
 
+colorSubTitle " -install node-canvas"
+brew install pkg-config cairo pango libpng jpeg giflib
 echo "👏 Done!
 All Packages Below Has Been Installed
     -homebrew

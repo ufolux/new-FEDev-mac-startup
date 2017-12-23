@@ -13,6 +13,12 @@ function cmdExist () {
     command -v $1 > /dev/null 2>&1 : true - false
 }
 
+echo "Please input your password:"
+sudo -i
+
+echo "Allow install software from unknown source"
+sudo spctl --master-disable
+
 colorTitle "step 1.install homebrew"
 if cmdExist brew; then 
     echo 'brew is already there'    

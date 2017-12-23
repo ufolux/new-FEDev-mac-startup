@@ -52,7 +52,7 @@ else
 fi
 
 colorSubTitle " - install Node.js lts"
-n lst
+n lts
 
 colorSubTitle " - upgrade npm"
 npm i -g npm

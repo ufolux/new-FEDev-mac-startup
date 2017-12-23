@@ -51,11 +51,17 @@ else
     curl -L https://git.io/n-install | bash
 fi
 
-colorSubTitle " - install Node.js lts"
-n lts
+colorSubTitle " - install Node.js v6.11.5"
+n 6.11.5
 
-colorSubTitle " - upgrade npm"
-npm i -g npm
+colorSubTitle " - set npm source"
+npm config set registry https://registry.npm.taobao.org
+
+colorSubTitle " - install yarn"
+npm i -g yarn
+
+colorSubTitle " -set yarn source"
+yarn config set registry https://registry.npm.taobao.org
 
 colorTitle "step 6.install java"
 brew cask install caskroom/versions/java8
@@ -102,10 +108,10 @@ export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/build-tools/26.0.2:$PATH # replace 26.0.2 as your build-tools ver.' >> ~/.zshrc
 
 colorTitle "step 12.install cordova"
-npm i -g cordova@5.0.0
+yarn global add cordova@5.0.0
 
 colorTitle "step 13.install react-native-cli"
-npm i -g react-native-cli
+yarn global add react-native-cli
 
 colorTitle "step 14.install other tools"
 colorSubTitle " -install iterm2"
@@ -115,13 +121,13 @@ colorSubTitle " -install shadowsocksx"
 brew cask install shadowsocksx
 
 colorSubTitle " -install fanyi"
-npm i -g fanyi
+yarn global add fanyi
 
 colorSubTitle " -install toilet"
-npm i -g toilet
+yarn global add toilet
 
 colorSubTitle " -install ios-deploy"
-npm i -g ios-deploy
+yarn global add ios-deploy
 
 colorSubTitle " -install rhash"
 brew install rhash

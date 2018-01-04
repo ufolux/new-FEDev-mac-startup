@@ -25,6 +25,14 @@ if cmdExist brew; then
     echo 'brew is already there'    
 else
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    
+    # replace brew.git source for faster download in china
+    cd "$(brew --repo)"
+    git remote set-url origin https://mirrors.ustc.edu.cn/brew.git
+
+    # replace homebrew-core.git source for faster download in china
+    cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
+    git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
 fi
 
 colorTitle "step 2.install wget"
